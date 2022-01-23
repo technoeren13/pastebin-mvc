@@ -1,0 +1,80 @@
+body {
+	font-family: 'Lato', sans-serif;
+	background: #353535;
+	color: #FFF;
+
+}
+.main {
+margin-top: 50px;
+}
+
+button#addButton {
+    background-color: #4CAF50; /* Green */
+    width: 20%;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button#ResetButton {
+  background-color: #4CAF50; /* Green */
+  width: 20%;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.alertError {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+  }
+  .alertSuccess {
+    padding: 20px;
+    background-color: #48c50d; /* Red */
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+    .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+
+  .alert {
+    opacity: 1;
+    transition: opacity 0.6s;
+  }
+
+  #textarea {
+    background-color: #d86335;
+    width: 50%;
+    border: none;
+    border-radius: 8px;
+  }
+
+  #textarea::placeholder { 
+    color: white;
+    opacity: 1; 
+  }

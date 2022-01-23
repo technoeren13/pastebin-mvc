@@ -1,0 +1,35 @@
+<%- include('header') -%>
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+      <title>ADDText</title>
+   </head>
+   <body>
+
+    <div align="center">
+         <% if (alert) { %>
+      <% if (alertType === "error") { %>
+      <div class="alertError">
+         <span class="closebtn" onclick="location.href='/'">&times;</span>
+         <%- alert %>
+      </div>
+      <% } %>
+      <% if (alertType === "success") { %>
+      <div class="alertSuccess">
+         <span class="closebtn" onclick="location.href='/'">&times;</span>
+         <%- alert %>
+      </div>
+      <% } %>
+      <% } %>
+
+     <div class="main">      
+      <form action="/" method="post">
+         <textarea placeholder="Write somethink..."  id="textarea" name="textarea" title="Text Area" rows="10" cols="70" required> </textarea>
+         <br>
+         <button type="submit" id="addButton" value="AddText">Save Text</button>             
+      </form>
+   </div>
+    </div>
+   </body>
+</html>
