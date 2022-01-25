@@ -22,11 +22,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 //pages
 app.get("/", pageRoutes.indexPage)
-app.get("/text/:code", pageRoutes.textPage)
-
-
+app.get("/text/:code/", pageRoutes.textPage)
 app.post("/", pageRoutes.indexPost)
-
 
 
 

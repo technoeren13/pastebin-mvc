@@ -3,7 +3,7 @@
 <html lang="en">
    <head>
       <link rel="stylesheet" type="text/css" href="/css/index.css">
-      <title>ADDText</title>
+      <title>ADDText - <%- textInfo.id -%></title>
    </head>
    <body>
       <div align="center">
@@ -16,18 +16,14 @@
          <% } %>
          <% if (alertType === "success") { %>
          <div class="alertSuccess">
-            <span class="closebtn" onclick="location.href='/'">&times;</span>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             <%- alert %>
          </div>
          <% } %>
          <% } %>
          <div class="main">
-            <h1>Text Area</h1>
-            <form action="/" method="post">
-               <textarea placeholder="Write somethink..."  id="textarea" name="textarea" title="Text Area" rows="10" cols="70" required></textarea>
-               <br>
-               <button type="submit" id="addButton" value="AddText">Save Text</button>             
-            </form>
+            <h1>Text - <%- textInfo.id -%></h1>
+            <textarea id="textarea" style="color:black;" disabled="disabled" rows="10"><%- textInfo.text -%></textarea>
          </div>
       </div>
    </body>
