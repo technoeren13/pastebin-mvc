@@ -1,40 +1,45 @@
 <%- include('header') -%>
-<!DOCTYPE html>
-<html lang="en">
+   <!DOCTYPE html>
+   <html lang="en">
+
    <head>
       <link rel="stylesheet" type="text/css" href="/css/index.css">
       <title>Text Area - New Text</title>
    </head>
+
    <body>
       <div align="center">
          <% if (alert) { %>
-         <% if (alertType === "error") { %>
-         <div class="alertError">
-            <span class="closebtn" onclick="location.href='/'">&times;</span>
-            <%- alert %>
-         </div>
-         <% } %>
-         <% if (alertType === "success") { %>
-         <div class="alertSuccess">
-            <span class="closebtn" onclick="location.href='/'">&times;</span>
-            <%- alert %>
-         </div>
-         <% } %>
-         <% } %>
-         <div class="main">
-            <h1 style="color:white;"> Text Area</h1>
-            <hr>
-            <form id="textAreaForm" action="/" method="post">
-               <textarea placeholder="Write somethink..."  id="textarea" name="textarea" title="Text Area" rows="22" cols="70" required></textarea>
-               <br>
+            <% if (alertType==="error" ) { %>
+               <div class="alertError">
+                  <span class="closebtn" onclick="location.href='/'">&times;</span>
+                  <%- alert %>
+               </div>
+               <% } %>
+                  <% if (alertType==="success" ) { %>
+                     <div class="alertSuccess">
+                        <span class="closebtn" onclick="location.href='/'">&times;</span>
+                        <%- alert %>
+                     </div>
+                     <% } %>
+                        <% } %>
+                           <div class="main">
+                              <h1 style="color:white;"> Text Area</h1>
+                              <hr>
+                              <form id="textAreaForm" action="/" method="post">
+                                 <textarea placeholder="Write somethink..." id="textarea" name="textarea"
+                                    title="Text Area" rows="22" cols="70" required></textarea>
+                                 <br>
 
-               <ul id="navbar">
-                  <li class="navbarli"><a href="javascript:;" onclick="document.getElementById('textAreaForm').submit();">Save</a></li>
-                  <li class="navbarli"><a href="/">New</a></li>
-               </ul>
+                                 <ul id="navbar">
+                                    <li class="navbarli"><a href="javascript:;"
+                                          onclick="document.getElementById('textAreaForm').submit();">Save</a></li>
+                                    <li class="navbarli"><a href="/">New</a></li>
+                                 </ul>
 
-            </form>
-         </div>
+                              </form>
+                           </div>
       </div>
    </body>
-</html>
+
+   </html>

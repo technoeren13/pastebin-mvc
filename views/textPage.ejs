@@ -1,38 +1,44 @@
 <%- include('header') -%>
-<!DOCTYPE html>
-<html lang="en">
+   <!DOCTYPE html>
+   <html lang="en">
+
    <head>
       <link rel="stylesheet" type="text/css" href="/css/index.css">
-      <title>Text Area - <%- textInfo.id -%></title>
+      <title>Text Area - <%- textInfo.id -%>
+      </title>
    </head>
+
    <body>
       <div align="center">
          <% if (alert) { %>
-         <% if (alertType === "error") { %>
-         <div class="alertError">
-            <span class="closebtn" onclick="location.href='/'">&times;</span>
-            <%- alert %>
-         </div>
-         <% } %>
-         <% if (alertType === "success") { %>
-         <div class="alertSuccess">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <%- alert %>
-         </div>
-         <% } %>
-         <% } %>
-         <div class="main">
-            <h1 style="color:white;">Text Area - <%- textInfo.id -%></h1>
-           <hr>
-            <textarea id="textarea" style="color:white;" disabled="disabled" rows="10"><%- textInfo.text -%></textarea>
-            
-         </div>
+            <% if (alertType==="error" ) { %>
+               <div class="alertError">
+                  <span class="closebtn" onclick="location.href='/'">&times;</span>
+                  <%- alert %>
+               </div>
+               <% } %>
+                  <% if (alertType==="success" ) { %>
+                     <div class="alertSuccess">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        <%- alert %>
+                     </div>
+                     <% } %>
+                        <% } %>
+                           <div class="main">
+                              <h1 style="color:white;">Text Area - <%- textInfo.id -%>
+                              </h1>
+                              <hr>
+                              <textarea id="textarea" style="color:white;" disabled="disabled"
+                                 rows="10"><%- textInfo.text -%></textarea>
 
-         <ul id="navbar">
-            <li class="navbarli"><a href="/">New</a></li>
-            <li class="navbarli"><a href="/">Edit</a></li>
-         </ul>
+                           </div>
+
+                           <ul id="navbar">
+                              <li class="navbarli"><a href="/">New</a></li>
+                              <li class="navbarli"><a href="/">Edit</a></li>
+                           </ul>
 
       </div>
    </body>
-</html>
+
+   </html>
