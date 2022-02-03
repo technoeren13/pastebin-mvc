@@ -1,8 +1,10 @@
 import { Request, Response, NextFunction, text } from 'express'
 import addTextModel from '../database/text.models'
 import { checkLength } from '../utils/checker'
+import dayjs from 'dayjs'
 
 export const indexPage = async (req: Request, res: Response) => {
+    
     let alert: string | undefined
     let code: any
 
@@ -28,12 +30,20 @@ export const indexPost = async (req: Request, res: Response) => {
 
     let code: string = Math.random()
         .toString(36)
-        .replace(/[^a-z]+/g, '')
-        .substr(0, 10)
+        .replace(/[^a-z]+/g, '').substr(0, 10)
 
-    const doc = new addTextModel({
+
+        interface Text {
+            id: string
+            text: string | undefined,
+            addedDate: any | undefined,
+        }
+    
+
+    const doc= new addTextModel<Text>({
         id: code,
         text: textarea,
+        addedDate: new Date()
     })
     await doc.save()
 
@@ -46,14 +56,22 @@ export const textPage = async (req: Request, res: Response) => {
 
     interface Text {
         id: string
-        text: string | undefined
+        text: string | undefined,
+        addedDate: string | undefined,
     }
 
     let textFromDb = await addTextModel.findOne({ id: req.params.code })
 
+    if(textFromDb === undefined) return res.redirect(`/error`)
+
+
+      let date = textFromDb?.addedDate.toString().substr(4, 11)
+
+
     let textInfo: Text = {
         id: req.params.code,
         text: textFromDb?.text,
+        addedDate: date?.slice(3, 6) + ' / ' + date?.slice(0, 3) + ' /' + date?.slice(6)
     }
 
     if (textFromDb === null) {
