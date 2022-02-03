@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction, text } from 'express'
 import addTextModel from '../database/text.models'
-import { checkLength } from './checker'
+import { checkLength } from '../utils/checker'
 
 export const indexPage = async (req: Request, res: Response) => {
     let alert: string | undefined

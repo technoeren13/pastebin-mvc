@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express'
 import path from 'path'
 import * as pageRoutes from './manager/pageRoutes'
-import logger from './manager/logger'
+import logger from './utils/logger'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 dotenv.config()
