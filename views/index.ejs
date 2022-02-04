@@ -31,11 +31,11 @@
                      <% } %>
                         <% } %>
                            <div class="main">
-                              <h1 style="color:white;"> Text Area</h1>
+                              <h1 style="color:white;"> Text Area - New Text</h1>
                               <hr>
                               <form id="textAreaForm" action="/" method="post">
                                  <textarea placeholder="> Write somethink..." id="textarea" name="textarea"
-                                    title="Text Area" rows="22" cols="70" required></textarea>
+                                    title="Text Area" rows="35" cols="70" required></textarea>
                                  <br>
 
                               </form>
@@ -45,3 +45,18 @@
    </body>
 
    </html>
+
+
+   <script>
+
+      if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+         console.log(document.querySelector("#textarea").value)
+
+         //localStorage.setItem('text_area_form', );
+
+
+      } 
+
+
+
+         </script>
