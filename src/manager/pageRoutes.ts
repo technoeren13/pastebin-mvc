@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction, text } from 'express'
 import addTextModel from '../database/text.models'
 import { checkLength } from '../utils/checker'
-import dayjs from 'dayjs'
 
 export const indexPage = async (req: Request, res: Response) => {
 
@@ -90,4 +89,56 @@ export const textPage = async (req: Request, res: Response) => {
 
 
     res.render('textPage', { textInfo, alert, alertType })
+}
+
+
+export const editTextPage = async (req: Request, res: Response) => {
+
+    interface Text {
+        id: string
+        text: string | undefined,
+    }
+
+    let textFromDb = await addTextModel.findOne({ id: req.params.code })
+
+    if (textFromDb === null) {
+        res.redirect(`/text/${req.params.code}?alert=error&infoMessage=No text was found on the entered id.`)
+        return;
+    }
+
+
+    let textInfo: Text = {
+        id: req.params.code,
+        text: textFromDb?.text,
+    }
+
+    res.render('editPage', { textInfo })
+}
+
+export const editTextPagePost = async (req: Request, res: Response) => {
+
+    let { textarea } = req.body
+
+    if (checkLength(textarea)) return res.redirect(`/text/?alert=error&reason=${checkLength(textarea)}`)
+
+    let code: string = Math.random()
+        .toString(36)
+        .replace(/[^a-z]+/g, '').substr(0, 10)
+
+
+    interface Text {
+        id: string
+        text: string | undefined,
+        addedDate: any | undefined,
+    }
+
+
+    const doc = new addTextModel<Text>({
+        id: code,
+        text: textarea,
+        addedDate: new Date()
+    })
+    await doc.save()
+
+    res.redirect(`/text/${code}?alert=success&infoMessage=Text Successfuly Edited.`)
 }

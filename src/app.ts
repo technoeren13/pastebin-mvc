@@ -16,8 +16,14 @@ app.use(express.static(path.join(__dirname, '/public')))
 
 //pages
 app.get('/', pageRoutes.indexPage)
-app.get('/text/:code/', pageRoutes.textPage)
 app.post('/', pageRoutes.indexPost)
+
+
+app.get('/edit/:code', pageRoutes.editTextPage)
+app.post('/edit/:code', pageRoutes.editTextPagePost)
+
+app.get('/text/:code/', pageRoutes.textPage)
+
 
 app.listen(3000, async () => {
     await connectDB()
