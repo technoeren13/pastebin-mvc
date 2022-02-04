@@ -4,7 +4,7 @@ import { checkLength } from '../utils/checker'
 import dayjs from 'dayjs'
 
 export const indexPage = async (req: Request, res: Response) => {
-    
+
     let alert: string | undefined
     let code: any
 
@@ -33,14 +33,14 @@ export const indexPost = async (req: Request, res: Response) => {
         .replace(/[^a-z]+/g, '').substr(0, 10)
 
 
-        interface Text {
-            id: string
-            text: string | undefined,
-            addedDate: any | undefined,
-        }
-    
+    interface Text {
+        id: string
+        text: string | undefined,
+        addedDate: any | undefined,
+    }
 
-    const doc= new addTextModel<Text>({
+
+    const doc = new addTextModel<Text>({
         id: code,
         text: textarea,
         addedDate: new Date()
@@ -63,7 +63,7 @@ export const textPage = async (req: Request, res: Response) => {
 
     let textFromDb = await addTextModel.findOne({ id: req.params.code })
 
-      let date = textFromDb?.addedDate.toString().substr(4, 11)
+    let date = textFromDb?.addedDate.toString().substr(4, 11)
 
 
     let textInfo: Text = {
@@ -86,7 +86,7 @@ export const textPage = async (req: Request, res: Response) => {
         alert = `${req.query.infoMessage}`
     }
 
-    await textFromDb?.updateOne({ $inc: { views: +1} }  )
+    await textFromDb?.updateOne({ $inc: { views: +1 } })
 
 
     res.render('textPage', { textInfo, alert, alertType })
