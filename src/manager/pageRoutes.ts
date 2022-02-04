@@ -58,12 +58,10 @@ export const textPage = async (req: Request, res: Response) => {
         id: string
         text: string | undefined,
         addedDate: string | undefined,
+        views: number | undefined
     }
 
     let textFromDb = await addTextModel.findOne({ id: req.params.code })
-
-    if(textFromDb === undefined) return res.redirect(`/error`)
-
 
       let date = textFromDb?.addedDate.toString().substr(4, 11)
 
@@ -71,11 +69,14 @@ export const textPage = async (req: Request, res: Response) => {
     let textInfo: Text = {
         id: req.params.code,
         text: textFromDb?.text,
-        addedDate: date?.slice(3, 6) + ' / ' + date?.slice(0, 3) + ' /' + date?.slice(6)
+        addedDate: `${date?.slice(3, 6)} ${date?.slice(0, 3)} ${date?.slice(9)}`,
+        views: textFromDb?.views
     }
 
     if (textFromDb === null) {
         textInfo.id = 'N/A'
+        textInfo.addedDate = 'N/A'
+        textInfo.views = 0
         alertType = 'error'
         alert = 'No text was found on the entered id.'
     }
@@ -84,6 +85,9 @@ export const textPage = async (req: Request, res: Response) => {
         alertType = 'success'
         alert = `${req.query.infoMessage}`
     }
+
+    await textFromDb?.updateOne({ $inc: { views: +1} }  )
+
 
     res.render('textPage', { textInfo, alert, alertType })
 }

@@ -8,6 +8,12 @@
    </head>
 
    <body>
+
+      <ul id="navbar">
+         <li class="navbarli"><a href="javascript:;"
+               onclick="document.getElementById('textAreaForm').submit();">Save</a></li>
+         <li class="navbarli"><a href="/">New</a></li>
+      </ul>
       <div align="center">
          <% if (alert) { %>
             <% if (alertType==="error" ) { %>
@@ -27,15 +33,9 @@
                               <h1 style="color:white;"> Text Area</h1>
                               <hr>
                               <form id="textAreaForm" action="/" method="post">
-                                 <textarea placeholder="Write somethink..." id="textarea" name="textarea"
+                                 <textarea placeholder="> Write somethink..." id="textarea" name="textarea"
                                     title="Text Area" rows="22" cols="70" required></textarea>
                                  <br>
-
-                                 <ul id="navbar">
-                                    <li class="navbarli"><a href="javascript:;"
-                                          onclick="document.getElementById('textAreaForm').submit();">Save</a></li>
-                                    <li class="navbarli"><a href="/">New</a></li>
-                                 </ul>
 
                               </form>
                            </div>

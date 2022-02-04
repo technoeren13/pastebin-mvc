@@ -9,6 +9,13 @@
    </head>
 
    <body>
+
+      <ul id="navbar">
+         <li class="navbarli"><a href="/">New</a></li>
+         <li class="navbarli"><a href="/">Edit</a></li>
+      </ul>
+
+
       <div align="center">
          <% if (alert) { %>
             <% if (alertType==="error" ) { %>
@@ -28,21 +35,19 @@
                               <h1 style="color:white;">Text Area - <%- textInfo.id -%>
                               </h1>
 
-                                 <div class="infoBox">
-                                <p>Added Date:  <%- textInfo.addedDate -%></p>
+                              <div class="infoBox">
+                                 <p>Added Date:
+                                    <%- textInfo.addedDate -%>
+                                 </p>
+                                 <p>Views: <%- textInfo.views -%>
+                                 </p>
 
-                                 </div>
+                              </div>
                               <hr>
-                              <textarea id="textarea" style="color:white;" disabled="disabled"
+                              <textarea id="textarea" style="color:rgb(253, 253, 253);" disabled="disabled"
                                  rows="10"><%- textInfo.text -%></textarea>
 
                            </div>
-
-                           <ul id="navbar">
-                              <li class="navbarli"><a href="/">New</a></li>
-                              <li class="navbarli"><a href="/">Edit</a></li>
-                           </ul>
-
       </div>
    </body>
 
