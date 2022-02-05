@@ -25,7 +25,7 @@
                </div>
                <% } %>
                   <% if (alertType==="success" ) { %>
-                     <div class="alertSuccess">
+                     <div id="alertSuccess" class="alertSuccess">
                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                         <%- alert %>
                      </div>
@@ -44,8 +44,8 @@
 
                               </div>
                               <hr>
-                              <textarea id="textarea" style="color:rgb(253, 253, 253);" disabled="disabled"
-                                 rows="28" cols="70"><%- textInfo.text -%></textarea>
+                              <textarea id="textarea" style="color:rgb(253, 253, 253);" disabled="disabled" rows="28"
+                                 cols="70"><%- textInfo.text -%></textarea>
 
                            </div>
       </div>
@@ -54,4 +54,13 @@
    </html>
 
 
+   <script>
 
+      if (document.getElementById("alertSuccess").className === "alertSuccess") {
+         if (localStorage.getItem("textArea")) {
+            localStorage.removeItem("textArea");
+         }
+
+      }
+
+   </script>

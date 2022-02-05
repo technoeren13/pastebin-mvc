@@ -10,8 +10,7 @@
    <body>
 
       <ul id="navbar">
-         <li class="navbarli"><a href="javascript:;"
-               onclick="document.getElementById('textAreaForm').submit();">Save</a></li>
+         <li class="navbarli"><a href="javascript:;" onclick="submit()">Save</a></li>
          <li class="navbarli"><a href="/">New</a></li>
       </ul>
 
@@ -40,23 +39,29 @@
 
                               </form>
                            </div>
-       </div>
-       
+      </div>
+
    </body>
 
    </html>
 
-
    <script>
+      window.onbeforeunload = function () {
+         if (document.querySelector("#textarea").value.length === null) return;
+         localStorage.setItem("textArea", document.querySelector("#textarea").value)
+      }
 
-      if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-         console.log(document.querySelector("#textarea").value)
+      window.onload = function () {
+         let textAreaItem = localStorage.getItem("textArea");
+         setTimeout(() => {
+            if (textAreaItem !== null) document.getElementById("textarea").innerHTML = localStorage.getItem("textArea");
+         }, 500)
+      }
 
-         //localStorage.setItem('text_area_form', );
+      async function submit() {
+         document.getElementById('textAreaForm').submit();
+      }
 
 
-      } 
 
-
-
-         </script>
+   </script>
