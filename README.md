@@ -18,5 +18,5 @@ ExpressJS Pastebin Project With TypeScript
 ![image](https://user-images.githubusercontent.com/48402602/152618192-17affd7a-af76-4509-8f0d-04d26a3f82b4.png)
 ![image](https://user-images.githubusercontent.com/48402602/152618304-bf4ed688-d414-4589-b537-b0a074eec16f.png)
 
-
-
+# Local Storage
+![Peek 2022-02-05 14-04](https://user-images.githubusercontent.com/48402602/152639471-d73cff05-ef56-43ae-9709-a3f606afcd6a.gif)
