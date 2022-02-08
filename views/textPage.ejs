@@ -49,18 +49,17 @@
 
                            </div>
       </div>
+      <script>
+
+         if (document.getElementById("alertSuccess").className === "alertSuccess") {
+            if (localStorage.getItem("textArea")) {
+               localStorage.removeItem("textArea");
+            }
+
+         }
+
+      </script>
+
    </body>
 
    </html>
-
-
-   <script>
-
-      if (document.getElementById("alertSuccess").className === "alertSuccess") {
-         if (localStorage.getItem("textArea")) {
-            localStorage.removeItem("textArea");
-         }
-
-      }
-
-   </script>
