@@ -1,8 +1,10 @@
 # expressjs-pastebin-with-typescript
 ExpressJS Pastebin Project With TypeScript
 
-**Start Command:** `yarn start`
-**Start with nodemon:** `yarn dev`
+## Installation
+1.  Download the package, and expand it
+2.  `yarn install`
+3.  `yarn start` (you may specify an optional `<config-path>` as well)
 
 # Add Page
 ![image](https://user-images.githubusercontent.com/48402602/152617916-738f44a1-aaec-439e-a88b-0f1377dbcb27.png)
