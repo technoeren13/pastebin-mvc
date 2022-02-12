@@ -17,37 +17,37 @@
 
 
       <div align="center">
-         <% if (alert) { %>
-            <% if (alertType==="error" ) { %>
-               <div class="alertError">
-                  <span class="closebtn" onclick="location.href='/'">&times;</span>
-                  <%- alert %>
-               </div>
-               <% } %>
-                  <% if (alertType==="success" ) { %>
-                     <div id="alertSuccess" class="alertSuccess">
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        <%- alert %>
-                     </div>
-                     <% } %>
+         <div class="main">
+            <h1 id="textAreaTitle"> Text Area - New Text</h1>
+            <% if (alertInfo.alert) { %>
+               <% if (alertInfo.alertType==="error" ) { %>
+                  <div class="alertError">
+                     <span class="closebtn" onclick="location.href='/'">&times;</span>
+                     <%- alertInfo.alert %>
+                  </div>
+                  <% } %>
+                     <% if (alertInfo.alertType==="success" ) { %>
+                        <div id="alertSuccess" class="alertSuccess">
+                           <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                           <%- alertInfo.alert %>
+                        </div>
                         <% } %>
-                           <div class="main">
-                              <h1 style="color:white;">Text Area - <%- textInfo.id -%>
-                              </h1>
+                           <% } %>
+            <div class="infoBox">
+               <p>Added Date:
+                  <%- textInfo.addedDate -%>
+               </p>
+               <p>Views: <%- textInfo.views -%>
+               </p>
 
-                              <div class="infoBox">
-                                 <p>Added Date:
-                                    <%- textInfo.addedDate -%>
-                                 </p>
-                                 <p>Views: <%- textInfo.views -%>
-                                 </p>
+            </div>
 
-                              </div>
-                              <hr>
-                              <textarea id="textarea" style="color:rgb(253, 253, 253);" disabled="disabled" rows="28"
-                                 cols="70"><%- textInfo.text -%></textarea>
+            <hr>
+            <textarea id="textarea" style="color:rgb(253, 253, 253);" disabled="disabled" rows="28"
+               cols="70"><%- textInfo.text -%></textarea>
 
-                           </div>
+         </div>
+
       </div>
       <script>
 

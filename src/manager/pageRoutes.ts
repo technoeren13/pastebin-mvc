@@ -2,8 +2,6 @@ import { Request, Response, NextFunction, text } from 'express'
 import addTextModel from '../database/text.models'
 import { checkLength } from '../utils/checker'
 
-
-
 interface AddNewTextInterfaces {
     id: string
     text: string | undefined,
@@ -30,6 +28,7 @@ const createCode = () => {
     return code
 }
 
+// Add Text Page
 export const indexPage = async (req: Request, res: Response) => {
 
     let alertInfo: AlertInfoInterfaces = {
@@ -50,6 +49,7 @@ export const indexPage = async (req: Request, res: Response) => {
     res.render('index', { alertInfo })
 }
 
+// New Text Added Post
 export const indexPost = async (req: Request, res: Response) => {
     const { textarea } = req.body;
     const code: string = createCode()
@@ -57,7 +57,7 @@ export const indexPost = async (req: Request, res: Response) => {
     if (checkLength(textarea)) return res.redirect(`/?alert=error&reason=${checkLength(textarea)}`)
 
     const doc = new addTextModel<AddNewTextInterfaces>({
-        id: createCode(),
+        id: code,
         text: textarea,
         addedDate: new Date()
     })

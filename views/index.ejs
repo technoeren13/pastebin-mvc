@@ -1,68 +1,65 @@
 <%- include('header') -%>
-   <!DOCTYPE html>
-   <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/index.css" />
+        <title>Text Area - New Text</title>
+    </head>
 
-   <head>
-      <link rel="stylesheet" type="text/css" href="/css/index.css">
-      <title>Text Area - New Text</title>
-   </head>
+    <body>
+        <ul id="navbar">
+            <li class="navbarli"><a href="javascript:;" onclick="submit()">Save</a></li>
+            <li class="navbarli"><a href="/">New</a></li>
+        </ul>
 
-   <body>
+        <div align="center">
+            <div class="main">
+                <h1 id="textAreaTitle">Text Area - New Text</h1>
 
-      <ul id="navbar">
-         <li class="navbarli"><a href="javascript:;" onclick="submit()">Save</a></li>
-         <li class="navbarli"><a href="/">New</a></li>
-      </ul>
+                <% if (alertInfo.alert) { %> <% if (alertInfo.alertType==="error" ) { %>
+                <div class="alertError">
+                    <span class="closebtn" onclick="location.href='/'">&times;</span>
+                    <%- alertInfo.alert %>
+                </div>
+                <% } %> <% if (alertInfo.alertType==="success" ) { %>
+                <div class="alertSuccess">
+                    <span class="closebtn" onclick="location.href='/'">&times;</span>
+                    <%- alertInfo.alert %>
+                </div>
+                <% } %> <% } %>
+                <hr />
+                <form id="textAreaForm" action="/" method="post">
+                    <textarea
+                        placeholder="> Write something..."
+                        id="textarea"
+                        name="textarea"
+                        title="Text Area"
+                        rows="35"
+                        cols="70"
+                        required
+                    ></textarea>
+                    <br />
+                </form>
+            </div>
+        </div>
 
-      <div align="center">
-         <% if (alert) { %>
-            <% if (alertType==="error" ) { %>
-               <div class="alertError">
-                  <span class="closebtn" onclick="location.href='/'">&times;</span>
-                  <%- alert %>
-               </div>
-               <% } %>
-                  <% if (alertType==="success" ) { %>
-                     <div class="alertSuccess">
-                        <span class="closebtn" onclick="location.href='/'">&times;</span>
-                        <%- alert %>
-                     </div>
-                     <% } %>
-                        <% } %>
-                           <div class="main">
-                              <h1 style="color:white;"> Text Area - New Text</h1>
-                              <hr>
-                              <form id="textAreaForm" action="/" method="post">
-                                 <textarea placeholder="> Write somethink..." id="textarea" name="textarea"
-                                    title="Text Area" rows="35" cols="70" required></textarea>
-                                 <br>
+        <script>
+            window.onbeforeunload = function () {
+                if (document.querySelector('#textarea').value.length === null) return
+                localStorage.setItem('textArea', document.querySelector('#textarea').value)
+            }
 
-                              </form>
-                           </div>
-      </div>
+            window.onload = function () {
+                let textAreaItem = localStorage.getItem('textArea')
+                setTimeout(() => {
+                    if (textAreaItem !== null)
+                        document.getElementById('textarea').innerHTML = localStorage.getItem('textArea')
+                }, 500)
+            }
 
-
-      <script>
-         window.onbeforeunload = function () {
-            if (document.querySelector("#textarea").value.length === null) return;
-            localStorage.setItem("textArea", document.querySelector("#textarea").value)
-         }
-   
-         window.onload = function () {
-            let textAreaItem = localStorage.getItem("textArea");
-            setTimeout(() => {
-               if (textAreaItem !== null) document.getElementById("textarea").innerHTML = localStorage.getItem("textArea");
-            }, 500)
-         }
-   
-         async function submit() {
-            document.getElementById('textAreaForm').submit();
-         }
-   
-   
-   
-      </script>
-
-   </body>
-
-   </html>
+            async function submit() {
+                    document.getElementById('textAreaForm').submit()
+            }
+        </script>
+    </body>
+</html>
