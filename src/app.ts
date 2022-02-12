@@ -6,7 +6,7 @@ import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 dotenv.config()
 
-import connectDB from './manager/connectDatabase'
+import connectDB from './utils/connectDatabase'
 
 const app = express()
 
@@ -23,6 +23,9 @@ app.get('/edit/:code', pageRoutes.editTextPage)
 app.post('/edit/:code', pageRoutes.editTextPagePost)
 
 app.get('/text/:code/', pageRoutes.textPage)
+
+
+app.get('*', pageRoutes.error404)
 
 
 app.listen(3000, async () => {

@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="/css/index.css" />
         <title>Text Area - <%- textInfo.id -%></title>
     </head>
 
@@ -37,12 +36,7 @@
                 >
             </div>
         </div>
-        <script>
-            if (document.getElementById('alertSuccess').className === 'alertSuccess') {
-                if (localStorage.getItem('textArea')) {
-                    localStorage.removeItem('textArea')
-                }
-            }
-        </script>
+        <script src="/script/textPage.js"></script>
+
     </body>
 </html>

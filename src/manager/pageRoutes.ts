@@ -138,3 +138,9 @@ export const editTextPagePost = async (req: Request, res: Response) => {
 
     res.redirect(`/text/${code}?alert=success&infoMessage=Text Successfuly Edited.`)
 }
+
+
+export const error404 = async (req: Request, res: Response) => {
+  res.status(404).send('Page Not Found. <a href="/">Return Home Page</a>')
+
+}

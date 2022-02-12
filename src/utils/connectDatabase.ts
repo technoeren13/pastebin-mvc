@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import log from '../utils/logger'
+import log from './logger'
 
 function connectDB() {
     return mongoose
