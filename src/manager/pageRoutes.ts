@@ -18,13 +18,13 @@ interface GetTextInterfaces {
 
 interface AlertInfoInterfaces {
     alertType: 'success' | 'error' | undefined,
-    alert:  string | undefined;
+    alert: string | undefined;
 }
 
 const createCode = () => {
     let code: string = Math.random()
-    .toString(36)
-    .replace(/[^a-z]+/g, '').substr(0, 10)
+        .toString(36)
+        .replace(/[^a-z]+/g, '').substr(0, 10)
     return code
 }
 

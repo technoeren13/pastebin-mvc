@@ -1,65 +1,48 @@
 <%- include('header') -%>
-   <!DOCTYPE html>
-   <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/index.css" />
+        <title>Text Area - <%- textInfo.id -%></title>
+    </head>
 
-   <head>
-      <link rel="stylesheet" type="text/css" href="/css/index.css">
-      <title>Text Area - <%- textInfo.id -%>
-      </title>
-   </head>
+    <body>
+        <ul id="navbar">
+            <li class="navbarli"><a href="/">New</a></li>
+            <li class="navbarli"><a href="/edit/<%- textInfo.id -%>">Edit</a></li>
+        </ul>
 
-   <body>
+        <div align="center">
+            <div class="main">
+                <h1 id="textAreaTitle">Text Area - New Text</h1>
+                <% if (alertInfo.alert) { %> <% if (alertInfo.alertType==="error" ) { %>
+                <div class="alertError">
+                    <span class="closebtn" onclick="location.href='/'">&times;</span>
+                    <%- alertInfo.alert %>
+                </div>
+                <% } %> <% if (alertInfo.alertType==="success" ) { %>
+                <div id="alertSuccess" class="alertSuccess">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <%- alertInfo.alert %>
+                </div>
+                <% } %> <% } %>
+                <div class="infoBox">
+                    <p>Added Date: <%- textInfo.addedDate -%></p>
+                    <p>Views: <%- textInfo.views -%></p>
+                </div>
 
-      <ul id="navbar">
-         <li class="navbarli"><a href="/">New</a></li>
-         <li class="navbarli"><a href="/edit/<%- textInfo.id -%>">Edit</a></li>
-      </ul>
-
-
-      <div align="center">
-         <div class="main">
-            <h1 id="textAreaTitle"> Text Area - New Text</h1>
-            <% if (alertInfo.alert) { %>
-               <% if (alertInfo.alertType==="error" ) { %>
-                  <div class="alertError">
-                     <span class="closebtn" onclick="location.href='/'">&times;</span>
-                     <%- alertInfo.alert %>
-                  </div>
-                  <% } %>
-                     <% if (alertInfo.alertType==="success" ) { %>
-                        <div id="alertSuccess" class="alertSuccess">
-                           <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                           <%- alertInfo.alert %>
-                        </div>
-                        <% } %>
-                           <% } %>
-            <div class="infoBox">
-               <p>Added Date:
-                  <%- textInfo.addedDate -%>
-               </p>
-               <p>Views: <%- textInfo.views -%>
-               </p>
-
+                <hr />
+                <textarea id="textarea" style="color: rgb(253, 253, 253)" disabled="disabled" rows="28" cols="70">
+<%- textInfo.text -%></textarea
+                >
             </div>
-
-            <hr>
-            <textarea id="textarea" style="color:rgb(253, 253, 253);" disabled="disabled" rows="28"
-               cols="70"><%- textInfo.text -%></textarea>
-
-         </div>
-
-      </div>
-      <script>
-
-         if (document.getElementById("alertSuccess").className === "alertSuccess") {
-            if (localStorage.getItem("textArea")) {
-               localStorage.removeItem("textArea");
+        </div>
+        <script>
+            if (document.getElementById('alertSuccess').className === 'alertSuccess') {
+                if (localStorage.getItem('textArea')) {
+                    localStorage.removeItem('textArea')
+                }
             }
-
-         }
-
-      </script>
-
-   </body>
-
-   </html>
+        </script>
+    </body>
+</html>

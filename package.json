@@ -4,13 +4,13 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node src/app.js",
     "dev": "nodemon src/app.ts",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "keywords": [],
-  "author": "",
+  "author": "technoeren13 <erenbaltaci7878@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.1",
@@ -35,5 +35,6 @@
     "nodemon": "^2.0.15",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5"
-  }
+  },
+  "repository": "git@github.com:technoeren13/expressjs-pastebin-with-typescript.git"
 }

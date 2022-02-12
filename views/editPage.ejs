@@ -1,40 +1,39 @@
 <%- include('header') -%>
-    <!DOCTYPE html>
-    <html lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="/css/index.css">
-        <title>Text Area - Edit Text <%- textInfo.id -%>
-        </title>
+        <link rel="stylesheet" type="text/css" href="/css/index.css" />
+        <title>Text Area - Edit Text <%- textInfo.id -%></title>
     </head>
 
     <body>
-
         <ul id="navbar">
-            <li class="navbarli"><a href="javascript:;"
-                    onclick="document.getElementById('textAreaForm').submit();">Edit</a></li>
+            <li class="navbarli">
+                <a href="javascript:;" onclick="document.getElementById('textAreaForm').submit();">Edit</a>
+            </li>
             <li class="navbarli"><a href="/">New</a></li>
         </ul>
 
-
         <div align="center">
-
             <div class="main">
-                <h1 style="color:white;">Text Area - Editing <a style="background-color: rebeccapurple;">
-                            <%- textInfo.id -%>
-                    </a>
+                <h1 style="color: white">
+                    Text Area - Editing <a style="background-color: rebeccapurple"> <%- textInfo.id -%> </a>
                 </h1>
-                <hr>
+                <hr />
                 <form id="textAreaForm" action="/edit/ujrersu" method="post">
-
-                    <textarea id="textarea" name="textarea" title="Text Area" style="color:rgb(253, 253, 253);"
-                        rows="22" cols="70" required><%- textInfo.text -%></textarea>
-
+                    <textarea
+                        id="textarea"
+                        name="textarea"
+                        title="Text Area"
+                        style="color: rgb(253, 253, 253)"
+                        rows="22"
+                        cols="70"
+                        required
+                    >
+<%- textInfo.text -%></textarea
+                    >
                 </form>
-
             </div>
-
         </div>
     </body>
-
-    </html>
+</html>
