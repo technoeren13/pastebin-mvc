@@ -1,5 +1,5 @@
 # expressjs-pastebin-with-typescript
-ExpressJS Pastebin Project With TypeScript
+Pastebin site in MVC Design
 
 ## Installation
 1.  Download the package, and expand it
